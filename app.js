@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res, next) => {
-    return res.send("Hello World!")
+    res.send("Hello World!")
 })
 
 app.use((req, res, next) => {
@@ -20,6 +21,6 @@ app.use((error, req, res, next) => {
     })
 })
 
-app.listen(4000, () => {
-    console.log("Server is running http://localhost:4000")
+app.listen(PORT, () => {
+    console.log(`Server is running http://localhost:${PORT}`)
 })
